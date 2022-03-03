@@ -7,6 +7,7 @@ on:
   workflow_dispatch:
 jobs:
   build:
+    runs-on: ubuntu-18.04
     steps:
       - name: trigger netlify webhook
         run: curl -X POST -d {} https://api.netlify.com/build_hooks/62206976f22b076d70164bfa
