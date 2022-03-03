@@ -24,8 +24,8 @@ export default function Users() {
     <div>
       <h1>Users</h1>
       {loading ? <Loader /> : null}
-      {users.map((user) => (
-        <User {...user} />
+      {users.map((user, idx) => (
+        <User key={idx} {...user} />
       ))}
     </div>
   );

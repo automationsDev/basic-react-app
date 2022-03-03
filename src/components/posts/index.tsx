@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Loader from "../Loader";
-import User from "../user/User";
 
 export default function Posts() {
   const [posts, setPosts]: [any[], any] = useState([]);
   const [loading, setLoading] = useState(false);
-  console.log("posts", posts);
+  const { userId } = useParams();
 
   useEffect(() => {
     setLoading(true);
-    fetch(`https://jsonplaceholder.typicode.com/posts?userId=3`)
+    fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
       .then(async (response) => {
         const posts = await response.json();
         setPosts(posts);
