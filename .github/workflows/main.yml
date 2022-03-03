@@ -1,0 +1,14 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: trigger netlify webhook
+        run: curl -X POST -d {} https://api.netlify.com/build_hooks/62206976f22b076d70164bfa
