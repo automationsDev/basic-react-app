@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Loader from "../Loader";
-import User from "./User";
+import User from "../user/User";
 
 export default function Users() {
   const [users, setUsers]: [any[], any] = useState([]);

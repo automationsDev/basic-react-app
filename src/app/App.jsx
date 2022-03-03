@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import Nav from "../nav";
-import Users from "../users/index";
+import Nav from "../components/nav";
+import Posts from "../components/posts";
+import Users from "../components/users";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<Users />} />
+          <Route path="/posts" element={<Posts />} />
         </Routes>
       </div>
     </div>
