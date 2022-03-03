@@ -8,6 +8,7 @@ function App() {
     <div className="App">
       <h1>Hello world</h1>
       <h3>Auto deployment is working great!!!!</h3>
+      <h4>Updating github actions</h4>
     </div>
   )
 }
