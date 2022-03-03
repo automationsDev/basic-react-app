@@ -1,16 +1,18 @@
-import { useState } from 'react'
-import './App.css'
+import { Route, Routes } from "react-router-dom";
+import Nav from "../nav";
+import Users from "../users/index";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="App">
-      <h1>Hello world</h1>
-      <h3>Auto deployment is working great!!!!</h3>
-      <h4>Updating github actions</h4>
+      <Nav />
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Users />} />
+        </Routes>
+      </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
