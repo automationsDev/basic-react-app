@@ -1,20 +1,50 @@
-import { Route, Routes } from "react-router-dom";
-import Nav from "../components/nav";
-import Posts from "../components/posts";
-import Users from "../components/users";
+import { useReducer } from "react";
+import { TodoAdder } from "../todos/TodoAdder";
+import { TodoItem } from "../todos/TodoItem";
+import "../todos/todos.css";
+import { TodosList } from "../todos/TodosList";
 
-function App() {
+const App = () => {
+  const todosReducer = (state, action) => {
+    if (action.type === "add") {
+      return [...state, action.payload];
+    }
+
+    if (action.type === "delete") {
+      const filtered = state.filter((v, i) => i !== action.payload);
+      return [...filtered];
+    }
+    return state;
+  };
+  const [todos, dispatch] = useReducer(todosReducer, []);
+
   return (
-    <div className="App">
-      <Nav />
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<Users />} />
-          <Route path="/posts/:userId" element={<Posts />} />
-        </Routes>
-      </div>
-    </div>
+    <main>
+      <TodoAdder
+        addTodo={(todo) => {
+          dispatch({
+            type: "add",
+            payload: todo,
+          });
+        }}
+      />
+      <TodosList
+        todos={todos}
+        forEach={(todo, i) => (
+          <TodoItem
+            todo={todo}
+            key={todo + i}
+            onDelete={() =>
+              dispatch({
+                type: "delete",
+                payload: i,
+              })
+            }
+          />
+        )}
+      ></TodosList>
+    </main>
   );
-}
+};
 
 export default App;

@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  width: 800px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  background-color: #ddd;
+  padding: 2rem;
+}
+
+.todoitem {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.todoitem p {
+  font-size: 2rem;
+}
+
+.todoitem button {
+  padding: 5px;
+}
+
+.todoadder input {
+  width: 100%;
+  height: 3rem;
+  border-radius: 5px;
+  border: 1px solid #9e9e9e;
+  padding: 0 10px;
+  font-size: 1.5rem;
+}
+
+.todoadder input:focus {
+  outline: none;
+}
+
+.todolist {
+}
+
+.todolist p.info-text {
+  line-height: 3;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 700;
+}
